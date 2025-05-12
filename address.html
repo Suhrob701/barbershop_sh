@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Address Picker</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    }
+
+    .left {
+      width: 40%;
+      padding: 60px;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #3b3b3b;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background-color: white;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .right {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+      margin-top: 100px;
+    }
+
+    .phone {
+      width: 450px;
+      height: 600px;
+      background-color: #000;
+      border-radius: 40px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .screen {
+      flex: 1;
+      background-color: #f1f1f1;
+      border-radius: 25px;
+      overflow: hidden;
+      padding: 20px;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .map {
+      width: 90%; /* Ekran o'lchamiga mos keladi */
+      height: 250px; /* Balandlikni belgilaymiz */
+      border-radius: 15px;
+      margin-bottom: 20px;
+      margin: 0 auto;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .info {
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: 500;
+      margin-top: 255px;
+      text-align: center;
+    }
+
+    .info:hover {
+    color: #cf864a; /* Hoverda matn rangi o'zgaradi */
+    transform: scale(1.1); /* Matnni kattalashtirish */
+    transition: all 0.5s ease;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .btn {
+      padding: 15px;
+      background-color: #cf864a;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #b97e3d;
+    }
+
+    .footer {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .back-btn {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  align-self: flex-start;
+  margin-top: 650px;
+  margin-left: 150px;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.big{
+  display: flex;
+  align-content: center;
+  gap: 250px;
+}
+
+a {
+  color: inherit; /* matnning ota elementi rangini oladi */
+  text-decoration: none; /* tag chizig‘ini yo‘q qiladi */
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="big">
+
+    <div class="left">
+      <div class="phone">
+        <div class="screen">
+      
+              <video style="height: 550px;" controls src="IMG_2968.MOV"></video>
+         
+          
+            <!-- Yozuvni map ostiga yaqinroq olib kelamiz -->
+            <div class="info">Enter your address below 👆</div>
+          </div>
+          
+        </div>
+      
+      </video>
+      
+    </div>
+  
+    <div class="right">
+      <div class="phone">
+          <div class="screen">
+              <div class="map" id="map">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d385.2251927014328!2d69.28973478480033!3d41.367158220780446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef3ea0788d3e3%3A0x19100a451e760660!2z0J_QsNGA0LjQutC80LDRhdC10YDRgdC60LDRjyBNIFo!5e0!3m2!1sru!2s!4v1746068072227!5m2!1sru!2s"
+                  width="340px" height="500" style="border:0; border-radius: 15px;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            
+              <!-- Yozuvni map ostiga yaqinroq olib kelamiz -->
+              <a href="https://maps.app.goo.gl/L9dLVbXorN2m2VXdA"><div class="info blue">Кликните сюда</div></a>
+            </div>
+            
+          </div>
+          <button class="back-btn" onclick="goBack()">← Orqaga</button>
+        </div>
+      </div>
+      
+
+  <script>
+    function updateMap() {
+      const input = document.getElementById("addressInput").value;
+      if(input) {
+        const encoded = encodeURIComponent(input);
+        const map = document.getElementById("map");
+        const url = `https://maps.googleapis.com/maps/api/staticmap?center=${encoded}&zoom=13&size=500x300&key=YOUR_API_KEY`;
+        map.style.backgroundImage = `url('${url}')`;
+      } else {
+        alert('Please enter an address!');
+      }
+    }
+
+    function goBack() {
+    window.location.href = "index.html"; // O'zingizning sahifangiz nomini yozing
+  }
+
+  const video = document.getElementById('myVideo');
+    const button = document.querySelector('button');
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        button.textContent = "Pause";
+      } else {
+        video.pause();
+        button.textContent = "Play";
+      }
+    }
+  </script>
+</body>
+</html>
